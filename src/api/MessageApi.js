@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:5000/';
+const BASE_URL = `${process.env.REACT_APP_BACKEND_URL}/`;
+
 const token = localStorage.getItem('authorization');
 
 // Create axios instance with default config

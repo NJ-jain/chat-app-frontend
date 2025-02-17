@@ -4,7 +4,7 @@ import { io } from "socket.io-client";
 import { fetchAllUsers } from "../features/User/userSlice";
 import { fetchAllMessages } from "../features/Message/messageSlice";
 
-const socket = io("https://socket-chat-backend-purr.onrender.com", {
+const socket = io(process.env.REACT_APP_BACKEND_URL , {
     transports: ["websocket"], // Force WebSocket only
     withCredentials: true
 });
