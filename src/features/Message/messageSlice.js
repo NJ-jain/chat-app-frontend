@@ -4,7 +4,7 @@ import { messageApi } from '../../api/MessageApi';
 
 export const fetchAllMessages = createAsyncThunk(
     'message/fetchMessages',
-    async (_, { getState }) => {
+    async () => {
         return await messageApi.getAllMessages();
     }
 );
@@ -16,15 +16,22 @@ const messageSlice = createSlice({
         loading: false,
         error: null,
     },
-    reducers: {},
+    reducers: {
+        setMessages: (state, action) => {
+            state.messages = action.payload;
+        },
+        addMessage: (state, action) => {
+            state.messages.unshift(action.payload);
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(fetchAllMessages.pending, (state) => {
                 state.loading = true;
             })
             .addCase(fetchAllMessages.fulfilled, (state, action) => {
-                debugger
                 state.loading = false;
+                console.log(action.payload)
                 state.messages = action.payload;
                 state.error = null;
             })
@@ -35,4 +42,5 @@ const messageSlice = createSlice({
     },
 });
 
+export const { setMessages, addMessage } = messageSlice.actions;
 export default messageSlice.reducer; 

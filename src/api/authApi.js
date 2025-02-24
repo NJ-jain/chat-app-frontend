@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:5000/api/auth';
+const BASE_URL = `${process.env.REACT_APP_BACKEND_URL}/api/auth`;
 
 export const authApi = {
     login: async (credentials) => {

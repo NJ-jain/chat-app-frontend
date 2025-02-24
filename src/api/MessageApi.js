@@ -21,5 +21,13 @@ export const messageApi = {
         } catch (error) {
             throw error;
         }
+    },
+    getPersonalMessages: async (partnerId) => {
+        try {
+            const response = await api.get(`api/personal-messages/${partnerId}`);
+            return response.data;
+        } catch (error) {
+            throw error;
+        }
     }
 }; 
