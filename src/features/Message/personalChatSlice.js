@@ -18,7 +18,7 @@ const personalChatSlice = createSlice({
     },
     reducers: {
         addPersonalMessage: (state, action) => {
-            state.messages.unshift(action.payload);
+            state.messages.push(action.payload);
         },
         setPersonalMessages: (state, action) => {
             state.messages = action.payload;

@@ -47,7 +47,7 @@ const Chat = () => {
             <div style={{ flex: 1 }}>
                 <h2>React Chat</h2>
                 <div style={{ border: "1px solid #ccc", padding: "10px", height: "400px", overflowY: "auto" }}>
-                    {messages.slice().reverse().map((msg, index) => (
+                    {messages.map((msg, index) => (
                         <div key={index} style={{ padding: "5px", width: "100%", textAlign: "left", float: msg.sender === userid ? "right" : "left" }}>
                             <strong>{msg.sender.username}:</strong> {msg.text}
                         </div>
